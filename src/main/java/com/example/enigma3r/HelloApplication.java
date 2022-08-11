@@ -3,6 +3,7 @@ package com.example.enigma3r;
 import javafx.animation.ParallelTransition;
 import javafx.animation.TranslateTransition;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -300,15 +301,12 @@ public class HelloApplication extends Application {
         parallelTransition.getChildren().addAll(transition);
         parallelTransition.play();
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                String bip = "src\\main\\resources\\com\\example\\enigma3r\\click.mp3";
-                Media hit = new Media(new File(bip).toURI().toString());
-                MediaPlayer mediaPlayer = new MediaPlayer(hit);
-                mediaPlayer.seek(Duration.seconds(12));
-                mediaPlayer.play();
-            }
+       new Thread(() -> {
+            String bip = "src\\main\\resources\\com\\example\\enigma3r\\click.mp3";
+            Media hit = new Media(new File(bip).toURI().toString());
+            MediaPlayer mediaPlayer = new MediaPlayer(hit);
+            mediaPlayer.seek(Duration.seconds(12));
+            mediaPlayer.play();
         }).start();
 
 
