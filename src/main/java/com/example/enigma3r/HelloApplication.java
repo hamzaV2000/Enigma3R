@@ -24,6 +24,7 @@ public class HelloApplication extends Application {
     //main matrix for rotors,input,reflection
     Label rotars[][];
 
+
     @Override
     public void start(Stage stage) throws IOException {
         this.pane = new AnchorPane();
@@ -256,11 +257,15 @@ public class HelloApplication extends Application {
         r*=3;
         r++;
         Label []firstRow={rotars[0][r],rotars[0][r+1],rotars[0][r+2]};
+
        // cheking the notch to rotate the other rotor
+
         if(firstRow[0].getText().charAt(0)=='^'&&!setup)
         {
-            System.out.println("hello");
-            rotateTheRotar((temp+1)%3,false);
+            Platform.runLater(() -> {
+                rotateTheRotar((temp+1)%3,false);
+            });
+
         }
 
 
