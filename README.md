@@ -1,7 +1,7 @@
 # Simple Enigma simulator with three Rotors
 Project for University for Information and network security class
 
-using Java, JavaFx and Intellij Idea.
+using Java, JavaFx ,maven and Intellij Idea.
 
 
 ![alt text](https://mckoss.com/posts/paper-enigma/enigma-photo.jpg)
